@@ -40,7 +40,7 @@ jobs:
         # Path of the target file or directory in the target repository where the changes need to be reflected. It can be a file or a directory.
         target-path: /
         # Local path of the file or directory that contains the changes to be propagated. It can be a file or a directory.
-        source-path: ./build.zip
+        source-path: ./
         # Name of the new branch to be created for the changes.
         branch-name: master
         # A GitHub token with appropriate permissions to create and manage PRs.
@@ -50,7 +50,7 @@ jobs:
         # The branch that the changes should be based off of. If not provided, defaults to 'main'.
         base-branch: # optional, default is main
         # Labels to be applied to the PR for better categorization. Defaults to 'documentation' if not provided.
-        label: # optional, default is documentation
+        label: 11 # optional, default is documentation
         # The email address associated with the GitHub account performing the action. This will be used to associate the commits and pull request with this user.
         user-email: 15501259989@163.com
         # The username of the GitHub account performing the action. This will be reflected in the commits and pull request.
