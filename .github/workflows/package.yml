@@ -30,31 +30,42 @@ jobs:
       with:
         name: build
     - run: ls -a
-    - run: git init && git remote add origin https://github.com/coder-hank/test-action && git branch -m main && git pull origin main && git reset --hard origin/main
 
-
-    # You may pin to the exact commit or the version.
-    # uses: AzulGarza/sync-repos@5ac4e9f53300b7d94fd653d25ba3456b06963b6a
-    - uses: FedericoGarza/sync-repos@main
-      with:
-        # The GitHub repository where the files or directories need to be updated.
-        target-repo: https://github.com/coder-hank/test-action
-        # Path of the target file or directory in the target repository where the changes need to be reflected. It can be a file or a directory.
-        target-path: /
-        # Local path of the file or directory that contains the changes to be propagated. It can be a file or a directory.
-        source-path: ./
-        # Name of the new branch to be created for the changes.
-        branch-name: main
-        # A GitHub token with appropriate permissions to create and manage PRs.
-        github-token: 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
-        # Message for the commit that includes the changes.
-        commit-message: 上传文件
-        # The branch that the changes should be based off of. If not provided, defaults to 'main'.
-        base-branch: # optional, default is main
-        # Labels to be applied to the PR for better categorization. Defaults to 'documentation' if not provided.
-        label: 11 # optional, default is documentation
-        # The email address associated with the GitHub account performing the action. This will be used to associate the commits and pull request with this user.
-        user-email: 15501259989@163.com
-        # The username of the GitHub account performing the action. This will be reflected in the commits and pull request.
-        user-name: coder-hank
+    - run: |
+          git config --global user.email "15501259989@163.com"
+          git config --global user.name "coder-hank"
+          git clone --branch main https://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@github.com/coder-hank/test-action.git temp
+          cp build.zip temp/
+          cd temp
+          git remote set-url origin https://x-access-token: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@github.com/coder-hank/test-action
+          git push origin --delete update || true
+          git checkout -b update
+          git add .
+          git commit -m "更新文件"
+          git push --set-upstream origin update
+          gh pr create -H update -B main --title 'Update' --body 'Created by Github action' --label xxx
+          cd ..
+          rm -rf temp
+    # - uses: FedericoGarza/sync-repos@main
+    #   with:
+    #     # The GitHub repository where the files or directories need to be updated.
+    #     target-repo: https://github.com/coder-hank/test-action
+    #     # Path of the target file or directory in the target repository where the changes need to be reflected. It can be a file or a directory.
+    #     target-path: /
+    #     # Local path of the file or directory that contains the changes to be propagated. It can be a file or a directory.
+    #     source-path: ./
+    #     # Name of the new branch to be created for the changes.
+    #     branch-name: main
+    #     # A GitHub token with appropriate permissions to create and manage PRs.
+    #     github-token: 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
+    #     # Message for the commit that includes the changes.
+    #     commit-message: 上传文件
+    #     # The branch that the changes should be based off of. If not provided, defaults to 'main'.
+    #     base-branch: # optional, default is main
+    #     # Labels to be applied to the PR for better categorization. Defaults to 'documentation' if not provided.
+    #     label: 11 # optional, default is documentation
+    #     # The email address associated with the GitHub account performing the action. This will be used to associate the commits and pull request with this user.
+    #     user-email: 15501259989@163.com
+    #     # The username of the GitHub account performing the action. This will be reflected in the commits and pull request.
+    #     user-name: coder-hank
           
