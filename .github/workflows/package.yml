@@ -30,7 +30,7 @@ jobs:
       with:
         name: build
     - run: ls -a
-    - run: git init && git remote add origin https://github.com/coder-hank/test-action && git branch -m main && git pull origin main && git reset --hard origin/main 
+    - run: git init && git remote add origin https://github.com/coder-hank/test-action && git branch -m main && git pull origin main && git reset --hard origin/main
 
 
     # You may pin to the exact commit or the version.
@@ -46,8 +46,7 @@ jobs:
         # Name of the new branch to be created for the changes.
         branch-name: main
         # A GitHub token with appropriate permissions to create and manage PRs.
-        github-
-        : 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
+        github-token: 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
         # Message for the commit that includes the changes.
         commit-message: 上传文件
         # The branch that the changes should be based off of. If not provided, defaults to 'main'.
