@@ -15,7 +15,7 @@ jobs:
         node-version: '14' # 使用适当的Node.js版本
     - run: npm install
     # - run: npm run build
-    - run: zip -r build.zip .
+    - run: zip -r build.zip . -x ".git/*"
     - uses: actions/upload-artifact@v2
       with:
         name: build
