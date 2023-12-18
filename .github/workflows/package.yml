@@ -30,7 +30,7 @@ jobs:
       with:
         name: build
     - run: ls -a
-    - run: git init && git remote add origin https://github.com/coder-hank/test-action
+    - run: git init && git remote add origin https://github.com/coder-hank/test-action && git branch -m main && git pull
 
 
     # You may pin to the exact commit or the version.
