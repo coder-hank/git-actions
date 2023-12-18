@@ -34,10 +34,10 @@ jobs:
     - run: |
           git config --global user.email "15501259989@163.com"
           git config --global user.name "coder-hank"
-          git clone --branch main https://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@github.com/coder-hank/test-action.git temp
+          git clone --branch main https://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@github.com/coder-hank/test-action.git temp
           cp build.zip temp/
           cd temp
-          git remote set-url origin https://x-access-token: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@github.com/coder-hank/test-action
+          git remote set-url origin https://x-access-token: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@github.com/coder-hank/test-action
           git push origin --delete update || true
           git checkout -b update
           git add .
