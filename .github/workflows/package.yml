@@ -42,7 +42,7 @@ jobs:
         # Local path of the file or directory that contains the changes to be propagated. It can be a file or a directory.
         source-path: ./
         # Name of the new branch to be created for the changes.
-        branch-name: master
+        branch-name: main
         # A GitHub token with appropriate permissions to create and manage PRs.
         github-token: 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
         # Message for the commit that includes the changes.
