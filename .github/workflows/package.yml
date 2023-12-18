@@ -31,11 +31,29 @@ jobs:
         name: build
     - run: ls -a
 
-    # - uses: jakejarvis/s3-sync-action@master
-    #   with:
-    #     args: --acl public-read --follow-symlinks --delete
-    #   env:
-    #     AWS_S3_BUCKET: your-bucket-name
-    #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-    #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    #     AWS_REGION: 'us-west-2' # 如果您的S3桶在其他区域，请更改此目标。
+  - name: Sync Repos Action
+  # You may pin to the exact commit or the version.
+  # uses: AzulGarza/sync-repos@5ac4e9f53300b7d94fd653d25ba3456b06963b6a
+  uses: AzulGarza/sync-repos@v1.0.9
+  with:
+    # The GitHub repository where the files or directories need to be updated.
+    target-repo: https://github.com/coder-hank/test-action
+    # Path of the target file or directory in the target repository where the changes need to be reflected. It can be a file or a directory.
+    target-path: /
+    # Local path of the file or directory that contains the changes to be propagated. It can be a file or a directory.
+    source-path: ./build.zip
+    # Name of the new branch to be created for the changes.
+    branch-name: master
+    # A GitHub token with appropriate permissions to create and manage PRs.
+    github-token: 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
+    # Message for the commit that includes the changes.
+    commit-message: 上传文件
+    # The branch that the changes should be based off of. If not provided, defaults to 'main'.
+    base-branch: # optional, default is main
+    # Labels to be applied to the PR for better categorization. Defaults to 'documentation' if not provided.
+    label: # optional, default is documentation
+    # The email address associated with the GitHub account performing the action. This will be used to associate the commits and pull request with this user.
+    user-email: 15501259989@163.com
+    # The username of the GitHub account performing the action. This will be reflected in the commits and pull request.
+    user-name: coder-hank
+          
