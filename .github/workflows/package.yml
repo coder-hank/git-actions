@@ -44,7 +44,7 @@ jobs:
         # Name of the new branch to be created for the changes.
         branch-name: master
         # A GitHub token with appropriate permissions to create and manage PRs.
-        github-token: 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
+        github-token: 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
         # Message for the commit that includes the changes.
         commit-message: 上传文件
         # The branch that the changes should be based off of. If not provided, defaults to 'main'.
