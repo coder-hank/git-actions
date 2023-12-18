@@ -30,6 +30,7 @@ jobs:
       with:
         name: build
     - run: ls -a
+    - run: git init
 
     # You may pin to the exact commit or the version.
     # uses: AzulGarza/sync-repos@5ac4e9f53300b7d94fd653d25ba3456b06963b6a
