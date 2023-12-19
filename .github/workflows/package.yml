@@ -40,7 +40,7 @@ jobs:
           git clone --branch main https://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@github.com/coder-hank/test-action.git temp
           cp build.zip temp/
           cd temp
-          git remote set-url origin https://coder-hank:han15501259989@github.com/coder-hank/test-action.git
+          # git remote set-url origin https://coder-hank:han15501259989@github.com/coder-hank/test-action.git
 
           # git remote set-url origin https://github.com/coder-hank/test-action.git
           git push origin --delete update || true
