@@ -57,7 +57,7 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: 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
+          github_token: ${{secrets.GITHUB_TOKEN}}
           repository: coder-hank/test-action
           force: true
     # - uses: FedericoGarza/sync-repos@main
