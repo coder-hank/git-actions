@@ -9,37 +9,40 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '14' # 使用适当的Node.js版本
-    - run: npm install
-    # - run: npm run build
-    - run: zip -r build.zip . -x ".git/*"
-    - uses: actions/upload-artifact@v2
-      with:
-        name: build
-        path: build.zip
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14' # 使用适当的Node.js版本
+      - run: npm install
+      # - run: npm run build
+      - run: zip -r build.zip . -x ".git/*"
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: build.zip
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     if: success() && github.event_name != 'pull_request'
     steps:
-    - uses: actions/download-artifact@v2
-      with:
-        name: build
-    - run: ls -a
+      - uses: actions/download-artifact@v2
+        with:
+          name: build
+      - run: ls -a
 
-    - run: |
+      - run: |
           git config --global user.email "15501259989@163.com"
           git config --global user.name "coder-hank"
           git config --global credential.helper store
           export GITHUB_ACCESS_TOKEN= "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"
+          echo "https://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@github.com" >> ~/.git-credentials
           git clone --branch main https://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@github.com/coder-hank/test-action.git temp
           cp build.zip temp/
           cd temp
-          git remote set-url origin https://github.com/coder-hank/test-action.git
+          # git remote set-url origin https://x-access-token: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@github.com/coder-hank/test-action
+
+          # git remote set-url origin https://github.com/coder-hank/test-action.git
           git push origin --delete update || true
           git checkout -b update
           git add .
@@ -70,4 +73,3 @@ jobs:
     #     user-email: 15501259989@163.com
     #     # The username of the GitHub account performing the action. This will be reflected in the commits and pull request.
     #     user-name: coder-hank
-          
