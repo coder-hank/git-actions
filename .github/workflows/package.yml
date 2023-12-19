@@ -40,17 +40,23 @@ jobs:
           git clone --branch main https://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@github.com/coder-hank/test-action.git temp
           cp build.zip temp/
           cd temp
-          # git remote set-url origin https://coder-hank:han15501259989@github.com/coder-hank/test-action.git
+          # git remote set-url origin https://oauth2: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@github.com/coder-hank/test-action.git
 
-          # git remote set-url origin https://github.com/coder-hank/test-action.git
-          git push origin --delete update || true
-          git checkout -b update
-          git add .
-          git commit -m "更新文件"
-          git push --set-upstream origin update
-          gh pr create -H update -B main --title 'Update' --body 'Created by Github action' --label xxx
-          cd ..
-          rm -rf temp
+          # # git remote set-url origin https://github.com/coder-hank/test-action.git
+          # git push origin --delete update || true
+          # git checkout -b update
+          # git add .
+          # git commit -m "更新文件"
+          # git push --set-upstream origin update
+          # gh pr create -H update -B main --title 'Update' --body 'Created by Github action' --label xxx
+          # cd ..
+          # rm -rf temp
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: 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
+          repository: coder-hank/test-action
+          force: true
     # - uses: FedericoGarza/sync-repos@main
     #   with:
     #     # The GitHub repository where the files or directories need to be updated.
