@@ -40,6 +40,9 @@ jobs:
           git clone --branch main https://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@github.com/coder-hank/test-action.git temp
           cp build.zip temp/
           cd temp
+          git checkout -b update
+          git add .
+          git commit -m "更新文件"
           # git remote set-url origin https://oauth2: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@github.com/coder-hank/test-action.git
 
           # # git remote set-url origin https://github.com/coder-hank/test-action.git
@@ -54,7 +57,7 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: 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
+          github_token: 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
           repository: coder-hank/test-action
           force: true
     # - uses: FedericoGarza/sync-repos@main
