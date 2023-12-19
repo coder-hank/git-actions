@@ -34,6 +34,8 @@ jobs:
     - run: |
           git config --global user.email "15501259989@163.com"
           git config --global user.name "coder-hank"
+          git config --global credential.helper store
+          export GITHUB_ACCESS_TOKEN= "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"
           git clone --branch main https://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@github.com/coder-hank/test-action.git temp
           cp build.zip temp/
           cd temp
